@@ -4,10 +4,7 @@ export default defineConfig({
   base: "/sweet-surprises-landing/",
   tanstackStart: {
     spa: {
-      enabled: true,
-        prerender: {
-          enabled: false,
-        },
+      enabled: false,
     },
   },
 } as any);
