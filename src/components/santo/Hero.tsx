@@ -103,7 +103,7 @@ export function Hero() {
             initial={{ scale: 0.6, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute inset-4 rounded-full bg-gradient-rose blur-2xl"
+            className="absolute inset-4 rounded-full bg-gradient-to-r from-rose-300 blur-2xl"
           />
           <motion.div
             aria-hidden
