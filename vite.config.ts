@@ -5,6 +5,9 @@ export default defineConfig({
   tanstackStart: {
     spa: {
       enabled: true,
+        prerender: {
+          enabled: false,
+        },
     },
   },
 } as any);
