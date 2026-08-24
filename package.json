@@ -11,8 +11,8 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "predeploy": "npm run build && cp index.html .output/public/index.html && cp index.html .output/public/404.html && touch .output/public/.nojekyll",
-    "deploy": "gh-pages -d .output/public"
+    "predeploy": "npm run build && cp dist/index.html dist/404.html && touch dist/.nojekyll",
+    "deploy": "gh-pages -d dist"
   },
   "overrides": {
     "rolldown": "1.2.1"
