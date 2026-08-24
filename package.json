@@ -7,11 +7,12 @@
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
+    "build:dist": "vite build --outDir dist",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "predeploy": "npm run build && cp dist/index.html dist/404.html && touch dist/.nojekyll",
+    "predeploy": "npm run build:dist && cp dist/index.html dist/404.html && touch dist/.nojekyll",
     "deploy": "gh-pages -d dist"
   },
   "overrides": {

@@ -25,35 +25,15 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: npm run build
+        run: npm run build:dist
 
-      - name: Generate fallback index.html if missing
+      - name: Ensure .nojekyll and 404.html exist
         run: |
-          if [ ! -f .output/public/index.html ]; then
-            JS_FILE=$(ls .output/public/assets/index-*.js 2>/dev/null | xargs -n1 basename | head -n1 || true)
-            CSS_FILE=$(ls .output/public/assets/styles-*.css 2>/dev/null | xargs -n1 basename | head -n1 || true)
-            echo "Creating fallback index.html using $JS_FILE and $CSS_FILE"
-            cat > .output/public/index.html <<EOF
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Sweet Surprises</title>
-    $(if [ -n "$CSS_FILE" ]; then echo "<link rel=\"stylesheet\" href=\"./assets/$CSS_FILE\">"; fi)
-  </head>
-  <body>
-    <div id="root"></div>
-    $(if [ -n "$JS_FILE" ]; then echo "<script type=\"module\" src=\"./assets/$JS_FILE\"></script>"; fi)
-  </body>
-</html>
-EOF
-          fi
-          touch .output/public/.nojekyll || true
-          cp .output/public/index.html .output/public/404.html 2>/dev/null || true
+          touch dist/.nojekyll || true
+          cp dist/index.html dist/404.html 2>/dev/null || true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./.output/public
+          publish_dir: ./dist
