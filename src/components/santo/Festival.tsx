@@ -11,7 +11,7 @@ const infos = [
 ];
 
 export function Festival() {
-  const { ref, y } = useParallax(70);
+  const { ref, y } = useParallax<HTMLImageElement>(70);
 
   return (
     <section id="festival" className="relative px-6 py-24">

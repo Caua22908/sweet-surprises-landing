@@ -64,8 +64,8 @@ export function SplitWords({
 }
 
 /** Parallax vertical suave conforme o elemento cruza a tela. */
-export function useParallax(distance = 80) {
-  const ref = useRef<HTMLDivElement>(null);
+export function useParallax<T extends HTMLElement = HTMLDivElement>(distance = 80) {
+  const ref = useRef<T>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
