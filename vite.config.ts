@@ -1,13 +1,9 @@
-import { defineConfig } from "@lovable.dev/vite-tanstack-config";
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import tsconfigPaths from "vite-tsconfig-paths";
 
 export default defineConfig({
   base: "/sweet-surprises-landing/",
-  tanstackStart: {
-    prerender: {
-      enabled: false,
-    },
-    spa: {
-      enabled: false,
-    },
-  },
-} as any);
+  plugins: [react(), tailwindcss(), tsconfigPaths()],
+});
