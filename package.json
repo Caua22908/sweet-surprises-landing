@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "predeploy": "npm run build",
+    "predeploy": "npm run build && touch .output/public/.nojekyll",
     "deploy": "gh-pages -d .output/public"
   },
   "overrides": {
