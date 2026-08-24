@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "predeploy": "npm run build:dist && if [ ! -f dist/index.html ]; then JS_FILE=$(ls dist/assets/index-*.js 2>/dev/null | head -n1 | xargs -n1 basename || true); CSS_FILE=$(ls dist/assets/styles-*.css 2>/dev/null | head -n1 | xargs -n1 basename || true); echo \"Creating fallback dist/index.html using $JS_FILE and $CSS_FILE\"; cat > dist/index.html <<EOF\n<!doctype html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <meta name=\"viewport\" content=\"width=device-width,initial-scale=1\" />\n    <title>Sweet Surprises</title>\n    $(if [ -n \"$CSS_FILE\" ]; then echo \"<link rel=\\\"stylesheet\\\" href=\\\"./assets/$CSS_FILE\\\">\"; fi)\n  </head>\n  <body>\n    <div id=\"root\"></div>\n    $(if [ -n \"$JS_FILE\" ]; then echo \"<script type=\\\"module\\\" src=\\\"./assets/$JS_FILE\\\"></script>\"; fi)\n  </body>\n</html>\nEOF; fi && cp dist/index.html dist/404.html && touch dist/.nojekyll",
+    "predeploy": "npm run build:dist && bash ./scripts/generate-fallback-index.sh && cp dist/index.html dist/404.html && touch dist/.nojekyll",
     "deploy": "gh-pages -d dist"
   },
   "overrides": {
