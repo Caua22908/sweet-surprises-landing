@@ -29,11 +29,11 @@ jobs:
 
       - name: Ensure .nojekyll and 404.html exist
         run: |
-          touch dist/.nojekyll || true
-          cp dist/index.html dist/404.html 2>/dev/null || true
+          touch .output/public/.nojekyll || true
+          cp .output/public/index.html .output/public/404.html 2>/dev/null || true
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
+          publish_dir: ./.output/public
