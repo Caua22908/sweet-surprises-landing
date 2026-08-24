@@ -2,7 +2,7 @@ import { motion, useScroll, useSpring, useTransform } from "motion/react";
 import { useRef } from "react";
 import { SplitWords } from "./motion-primitives";
 import { WHATSAPP_URL } from "./data";
-import ana from "@/assets/ana-luiza.jpeg.asset.json";
+import ana from "@/assets/ana.png";
 
 export function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -112,7 +112,7 @@ export function Hero() {
             transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
           />
           <motion.img
-            src={ana.url}
+            src={ana}
             alt="Ana Luiza, confeiteira da Santo Doce, segurando uma bandeja de brownies artesanais"
             width={880}
             height={1160}
