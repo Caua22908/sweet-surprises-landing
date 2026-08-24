@@ -1,7 +1,7 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
-  base: "/sweet-surprises-landing/",
+  base: "./",
   tanstackStart: {
     spa: {
       enabled: false,
