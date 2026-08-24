@@ -8,7 +8,9 @@ export default defineConfig({
   nitro: {
     preset: "static",
     prerender: {
-      routes: ["/"],
+      routes: ["/sweet-surprises-landing/", "/"],
+      crawlLinks: true,
+      failOnError: false,
     },
   },
 } as any);
