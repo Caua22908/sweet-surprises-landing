@@ -107,7 +107,7 @@ export function Hero() {
           />
           <motion.div
             aria-hidden
-            className="absolute inset-0 rounded-full border border-dashed border-primary/30"
+            className="hidden md:block absolute inset-0 rounded-full border border-dashed border-primary/30"
             animate={{ rotate: 360 }}
             transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
           />
@@ -119,13 +119,13 @@ export function Hero() {
             initial={{ opacity: 0, y: 60 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative z-10 w-full mix-blend-multiply drop-shadow-[0_30px_50px_rgba(60,30,20,0.28)]"
+            className=" hidden md:block relative z-10 w-full mix-blend-multiply drop-shadow-[0_30px_50px_rgba(60,30,20,0.28)]"
           />
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.5, duration: 0.8 }}
-            className="glass-doce absolute bottom-6 -left-2 z-20 animate-drift rounded-2xl px-5 py-3 shadow-doce"
+            className="hidden md:block glass-doce absolute bottom-6 -left-2 z-20 animate-drift rounded-2xl px-5 py-3 shadow-doce"
           >
             <p className="font-script text-xl text-primary">Ana Luiza</p>
             <p className="text-[10px] tracking-[0.25em] text-muted-foreground uppercase">
